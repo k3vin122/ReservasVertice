@@ -17,17 +17,21 @@ namespace ReservaVertice.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Alojamiento()
         {
-            this.Reserva = new HashSet<Reserva>();
-            this.Programa = new HashSet<Programa>();
+            this.alojamiento_has_tipo_alojamiento = new HashSet<alojamiento_has_tipo_alojamiento>();
+            this.Programa_has_alojamiento = new HashSet<Programa_has_alojamiento>();
+            this.alojamiento_has_servicio_adicional = new HashSet<alojamiento_has_servicio_adicional>();
+            this.Reserva_alojamiento = new HashSet<Reserva_alojamiento>();
         }
     
         public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reserva> Reserva { get; set; }
+        public virtual ICollection<alojamiento_has_tipo_alojamiento> alojamiento_has_tipo_alojamiento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Programa> Programa { get; set; }
+        public virtual ICollection<Programa_has_alojamiento> Programa_has_alojamiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<alojamiento_has_servicio_adicional> alojamiento_has_servicio_adicional { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva_alojamiento> Reserva_alojamiento { get; set; }
     }
 }

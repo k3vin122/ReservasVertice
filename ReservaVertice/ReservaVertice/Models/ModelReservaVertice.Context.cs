@@ -25,9 +25,18 @@ namespace ReservaVertice.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Tipo_Alojamiento> Tipo_AlojamientoSet { get; set; }
         public virtual DbSet<Alojamiento> AlojamientoSet { get; set; }
-        public virtual DbSet<Reserva> ReservaSet { get; set; }
-        public virtual DbSet<Pais> PaisSet { get; set; }
+        public virtual DbSet<alojamiento_has_tipo_alojamiento> alojamiento_has_tipo_alojamientoSet { get; set; }
+        public virtual DbSet<Programa_has_alojamiento> Programa_has_alojamientoSet { get; set; }
         public virtual DbSet<Programa> ProgramaSet { get; set; }
+        public virtual DbSet<Reserva_programa> Reserva_programaSet { get; set; }
+        public virtual DbSet<Servicio_adicional> Servicio_adicionalSet { get; set; }
+        public virtual DbSet<alojamiento_has_servicio_adicional> alojamiento_has_servicio_adicionalSet { get; set; }
+        public virtual DbSet<Reserva_alojamiento> Reserva_alojamientoSet { get; set; }
+        public virtual DbSet<Reserva> ReservaSet { get; set; }
+        public virtual DbSet<Reserva_detalle_programa> Reserva_detalle_programaSet { get; set; }
+        public virtual DbSet<Reserva_excursion> Reserva_excursionSet { get; set; }
+        public virtual DbSet<Excursion> ExcursionSet { get; set; }
     }
 }

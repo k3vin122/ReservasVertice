@@ -12,82 +12,312 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseReservaVerticeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DatabaseReservaVerticeEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Tipo_AlojamientoSet" EntityType="DatabaseReservaVerticeModel.Tipo_Alojamiento" />
           <EntitySet Name="AlojamientoSet" EntityType="DatabaseReservaVerticeModel.Alojamiento" />
-          <EntitySet Name="ReservaSet" EntityType="DatabaseReservaVerticeModel.Reserva" />
-          <AssociationSet Name="AlojamientoReserva" Association="DatabaseReservaVerticeModel.AlojamientoReserva">
-            <End Role="Alojamiento" EntitySet="AlojamientoSet" />
-            <End Role="Reserva" EntitySet="ReservaSet" />
+          <EntitySet Name="alojamiento_has_tipo_alojamientoSet" EntityType="DatabaseReservaVerticeModel.alojamiento_has_tipo_alojamiento" />
+          <AssociationSet Name="alojamiento_has_tipo_alojamientoTipo_Alojamiento" Association="DatabaseReservaVerticeModel.alojamiento_has_tipo_alojamientoTipo_Alojamiento">
+            <End Role="alojamiento_has_tipo_alojamiento" EntitySet="alojamiento_has_tipo_alojamientoSet" />
+            <End Role="Tipo_Alojamiento" EntitySet="Tipo_AlojamientoSet" />
           </AssociationSet>
-          <EntitySet Name="PaisSet" EntityType="DatabaseReservaVerticeModel.Pais" />
-          <AssociationSet Name="ReservaPais" Association="DatabaseReservaVerticeModel.ReservaPais">
-            <End Role="Reserva" EntitySet="ReservaSet" />
-            <End Role="Pais" EntitySet="PaisSet" />
+          <AssociationSet Name="Alojamientoalojamiento_has_tipo_alojamiento" Association="DatabaseReservaVerticeModel.Alojamientoalojamiento_has_tipo_alojamiento">
+            <End Role="Alojamiento" EntitySet="AlojamientoSet" />
+            <End Role="alojamiento_has_tipo_alojamiento" EntitySet="alojamiento_has_tipo_alojamientoSet" />
+          </AssociationSet>
+          <EntitySet Name="Programa_has_alojamientoSet" EntityType="DatabaseReservaVerticeModel.Programa_has_alojamiento" />
+          <AssociationSet Name="AlojamientoPrograma_has_alojamiento" Association="DatabaseReservaVerticeModel.AlojamientoPrograma_has_alojamiento">
+            <End Role="Alojamiento" EntitySet="AlojamientoSet" />
+            <End Role="Programa_has_alojamiento" EntitySet="Programa_has_alojamientoSet" />
           </AssociationSet>
           <EntitySet Name="ProgramaSet" EntityType="DatabaseReservaVerticeModel.Programa" />
-          <AssociationSet Name="AlojamientoPrograma" Association="DatabaseReservaVerticeModel.AlojamientoPrograma">
-            <End Role="Alojamiento" EntitySet="AlojamientoSet" />
+          <AssociationSet Name="Programa_has_alojamientoPrograma" Association="DatabaseReservaVerticeModel.Programa_has_alojamientoPrograma">
+            <End Role="Programa_has_alojamiento" EntitySet="Programa_has_alojamientoSet" />
             <End Role="Programa" EntitySet="ProgramaSet" />
           </AssociationSet>
+          <EntitySet Name="Reserva_programaSet" EntityType="DatabaseReservaVerticeModel.Reserva_programa" />
+          <AssociationSet Name="Reserva_programaPrograma" Association="DatabaseReservaVerticeModel.Reserva_programaPrograma">
+            <End Role="Reserva_programa" EntitySet="Reserva_programaSet" />
+            <End Role="Programa" EntitySet="ProgramaSet" />
+          </AssociationSet>
+          <EntitySet Name="Servicio_adicionalSet" EntityType="DatabaseReservaVerticeModel.Servicio_adicional" />
+          <EntitySet Name="alojamiento_has_servicio_adicionalSet" EntityType="DatabaseReservaVerticeModel.alojamiento_has_servicio_adicional" />
+          <AssociationSet Name="alojamiento_has_servicio_adicionalServicio_adicional" Association="DatabaseReservaVerticeModel.alojamiento_has_servicio_adicionalServicio_adicional">
+            <End Role="alojamiento_has_servicio_adicional" EntitySet="alojamiento_has_servicio_adicionalSet" />
+            <End Role="Servicio_adicional" EntitySet="Servicio_adicionalSet" />
+          </AssociationSet>
+          <AssociationSet Name="Alojamientoalojamiento_has_servicio_adicional" Association="DatabaseReservaVerticeModel.Alojamientoalojamiento_has_servicio_adicional">
+            <End Role="Alojamiento" EntitySet="AlojamientoSet" />
+            <End Role="alojamiento_has_servicio_adicional" EntitySet="alojamiento_has_servicio_adicionalSet" />
+          </AssociationSet>
+          <EntitySet Name="Reserva_alojamientoSet" EntityType="DatabaseReservaVerticeModel.Reserva_alojamiento" />
+          <AssociationSet Name="AlojamientoReserva_alojamiento" Association="DatabaseReservaVerticeModel.AlojamientoReserva_alojamiento">
+            <End Role="Alojamiento" EntitySet="AlojamientoSet" />
+            <End Role="Reserva_alojamiento" EntitySet="Reserva_alojamientoSet" />
+          </AssociationSet>
+          <EntitySet Name="ReservaSet" EntityType="DatabaseReservaVerticeModel.Reserva" />
+          <AssociationSet Name="ReservaReserva_alojamiento" Association="DatabaseReservaVerticeModel.ReservaReserva_alojamiento">
+            <End Role="Reserva" EntitySet="ReservaSet" />
+            <End Role="Reserva_alojamiento" EntitySet="Reserva_alojamientoSet" />
+          </AssociationSet>
+          <AssociationSet Name="ReservaReserva_programa" Association="DatabaseReservaVerticeModel.ReservaReserva_programa">
+            <End Role="Reserva" EntitySet="ReservaSet" />
+            <End Role="Reserva_programa" EntitySet="Reserva_programaSet" />
+          </AssociationSet>
+          <EntitySet Name="Reserva_detalle_programaSet" EntityType="DatabaseReservaVerticeModel.Reserva_detalle_programa" />
+          <AssociationSet Name="ReservaReserva_detalle_programa" Association="DatabaseReservaVerticeModel.ReservaReserva_detalle_programa">
+            <End Role="Reserva" EntitySet="ReservaSet" />
+            <End Role="Reserva_detalle_programa" EntitySet="Reserva_detalle_programaSet" />
+          </AssociationSet>
+          <EntitySet Name="Reserva_excursionSet" EntityType="DatabaseReservaVerticeModel.Reserva_excursion" />
+          <AssociationSet Name="ReservaReserva_excursion" Association="DatabaseReservaVerticeModel.ReservaReserva_excursion">
+            <End Role="Reserva" EntitySet="ReservaSet" />
+            <End Role="Reserva_excursion" EntitySet="Reserva_excursionSet" />
+          </AssociationSet>
+          <EntitySet Name="ExcursionSet" EntityType="DatabaseReservaVerticeModel.Excursion" />
+          <AssociationSet Name="ExcursionReserva_excursion" Association="DatabaseReservaVerticeModel.ExcursionReserva_excursion">
+            <End Role="Excursion" EntitySet="ExcursionSet" />
+            <End Role="Reserva_excursion" EntitySet="Reserva_excursionSet" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Tipo_Alojamiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Resumen_ReservaId" Type="Int32" Nullable="false" />
+          <Property Name="ll" Type="String" Nullable="false" />
+          <NavigationProperty Name="alojamiento_has_tipo_alojamiento" Relationship="DatabaseReservaVerticeModel.alojamiento_has_tipo_alojamientoTipo_Alojamiento" FromRole="Tipo_Alojamiento" ToRole="alojamiento_has_tipo_alojamiento" />
+        </EntityType>
         <EntityType Name="Alojamiento">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" />
-          <Property Name="Descripcion" Type="String" Nullable="false" />
-          <NavigationProperty Name="Reserva" Relationship="DatabaseReservaVerticeModel.AlojamientoReserva" FromRole="Alojamiento" ToRole="Reserva" />
-          <NavigationProperty Name="Programa" Relationship="DatabaseReservaVerticeModel.AlojamientoPrograma" FromRole="Alojamiento" ToRole="Programa" />
+          <NavigationProperty Name="alojamiento_has_tipo_alojamiento" Relationship="DatabaseReservaVerticeModel.Alojamientoalojamiento_has_tipo_alojamiento" FromRole="Alojamiento" ToRole="alojamiento_has_tipo_alojamiento" />
+          <NavigationProperty Name="Programa_has_alojamiento" Relationship="DatabaseReservaVerticeModel.AlojamientoPrograma_has_alojamiento" FromRole="Alojamiento" ToRole="Programa_has_alojamiento" />
+          <NavigationProperty Name="alojamiento_has_servicio_adicional" Relationship="DatabaseReservaVerticeModel.Alojamientoalojamiento_has_servicio_adicional" FromRole="Alojamiento" ToRole="alojamiento_has_servicio_adicional" />
+          <NavigationProperty Name="Reserva_alojamiento" Relationship="DatabaseReservaVerticeModel.AlojamientoReserva_alojamiento" FromRole="Alojamiento" ToRole="Reserva_alojamiento" />
         </EntityType>
-        <EntityType Name="Reserva">
+        <EntityType Name="alojamiento_has_tipo_alojamiento">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CantidadPasajero" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="Alojamiento" Relationship="DatabaseReservaVerticeModel.AlojamientoReserva" FromRole="Reserva" ToRole="Alojamiento" />
+          <NavigationProperty Name="Tipo_Alojamiento" Relationship="DatabaseReservaVerticeModel.alojamiento_has_tipo_alojamientoTipo_Alojamiento" FromRole="alojamiento_has_tipo_alojamiento" ToRole="Tipo_Alojamiento" />
+          <NavigationProperty Name="Alojamiento" Relationship="DatabaseReservaVerticeModel.Alojamientoalojamiento_has_tipo_alojamiento" FromRole="alojamiento_has_tipo_alojamiento" ToRole="Alojamiento" />
           <Property Name="AlojamientoId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pais" Relationship="DatabaseReservaVerticeModel.ReservaPais" FromRole="Reserva" ToRole="Pais" />
+          <Property Name="AlojamientoId1" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="AlojamientoReserva">
+        <Association Name="alojamiento_has_tipo_alojamientoTipo_Alojamiento">
+          <End Type="DatabaseReservaVerticeModel.alojamiento_has_tipo_alojamiento" Role="alojamiento_has_tipo_alojamiento" Multiplicity="*" />
+          <End Type="DatabaseReservaVerticeModel.Tipo_Alojamiento" Role="Tipo_Alojamiento" Multiplicity="1" />
+        </Association>
+        <Association Name="Alojamientoalojamiento_has_tipo_alojamiento">
           <End Type="DatabaseReservaVerticeModel.Alojamiento" Role="Alojamiento" Multiplicity="1" />
-          <End Type="DatabaseReservaVerticeModel.Reserva" Role="Reserva" Multiplicity="*" />
+          <End Type="DatabaseReservaVerticeModel.alojamiento_has_tipo_alojamiento" Role="alojamiento_has_tipo_alojamiento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Alojamiento">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Reserva">
+            <Dependent Role="alojamiento_has_tipo_alojamiento">
               <PropertyRef Name="AlojamientoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Pais">
+        <EntityType Name="Programa_has_alojamiento">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" />
-          <NavigationProperty Name="Reserva" Relationship="DatabaseReservaVerticeModel.ReservaPais" FromRole="Pais" ToRole="Reserva" />
+          <NavigationProperty Name="Alojamiento" Relationship="DatabaseReservaVerticeModel.AlojamientoPrograma_has_alojamiento" FromRole="Programa_has_alojamiento" ToRole="Alojamiento" />
+          <Property Name="AlojamientoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Programa" Relationship="DatabaseReservaVerticeModel.Programa_has_alojamientoPrograma" FromRole="Programa_has_alojamiento" ToRole="Programa" />
         </EntityType>
-        <Association Name="ReservaPais">
-          <End Type="DatabaseReservaVerticeModel.Reserva" Role="Reserva" Multiplicity="*" />
-          <End Type="DatabaseReservaVerticeModel.Pais" Role="Pais" Multiplicity="1" />
+        <Association Name="AlojamientoPrograma_has_alojamiento">
+          <End Type="DatabaseReservaVerticeModel.Alojamiento" Role="Alojamiento" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.Programa_has_alojamiento" Role="Programa_has_alojamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alojamiento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Programa_has_alojamiento">
+              <PropertyRef Name="AlojamientoId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <EntityType Name="Programa">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" />
-          <Property Name="Dias" Type="Int32" Nullable="false" />
-          <Property Name="Noches" Type="Int32" Nullable="false" />
-          <Property Name="Precio" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" Nullable="false" />
-          <NavigationProperty Name="Alojamiento" Relationship="DatabaseReservaVerticeModel.AlojamientoPrograma" FromRole="Programa" ToRole="Alojamiento" />
+          <NavigationProperty Name="Programa_has_alojamiento" Relationship="DatabaseReservaVerticeModel.Programa_has_alojamientoPrograma" FromRole="Programa" ToRole="Programa_has_alojamiento" />
+          <NavigationProperty Name="Reserva_programa" Relationship="DatabaseReservaVerticeModel.Reserva_programaPrograma" FromRole="Programa" ToRole="Reserva_programa" />
         </EntityType>
-        <Association Name="AlojamientoPrograma">
-          <End Type="DatabaseReservaVerticeModel.Alojamiento" Role="Alojamiento" Multiplicity="*" />
-          <End Type="DatabaseReservaVerticeModel.Programa" Role="Programa" Multiplicity="*" />
+        <Association Name="Programa_has_alojamientoPrograma">
+          <End Type="DatabaseReservaVerticeModel.Programa_has_alojamiento" Role="Programa_has_alojamiento" Multiplicity="*" />
+          <End Type="DatabaseReservaVerticeModel.Programa" Role="Programa" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Reserva_programa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Programa" Relationship="DatabaseReservaVerticeModel.Reserva_programaPrograma" FromRole="Reserva_programa" ToRole="Programa" />
+          <NavigationProperty Name="Reserva" Relationship="DatabaseReservaVerticeModel.ReservaReserva_programa" FromRole="Reserva_programa" ToRole="Reserva" />
+          <Property Name="ReservaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="Reserva_programaPrograma">
+          <End Type="DatabaseReservaVerticeModel.Reserva_programa" Role="Reserva_programa" Multiplicity="*" />
+          <End Type="DatabaseReservaVerticeModel.Programa" Role="Programa" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Servicio_adicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="alojamiento_has_servicio_adicional" Relationship="DatabaseReservaVerticeModel.alojamiento_has_servicio_adicionalServicio_adicional" FromRole="Servicio_adicional" ToRole="alojamiento_has_servicio_adicional" />
+        </EntityType>
+        <EntityType Name="alojamiento_has_servicio_adicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Servicio_adicional" Relationship="DatabaseReservaVerticeModel.alojamiento_has_servicio_adicionalServicio_adicional" FromRole="alojamiento_has_servicio_adicional" ToRole="Servicio_adicional" />
+          <NavigationProperty Name="Alojamiento" Relationship="DatabaseReservaVerticeModel.Alojamientoalojamiento_has_servicio_adicional" FromRole="alojamiento_has_servicio_adicional" ToRole="Alojamiento" />
+          <Property Name="AlojamientoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="alojamiento_has_servicio_adicionalServicio_adicional">
+          <End Type="DatabaseReservaVerticeModel.alojamiento_has_servicio_adicional" Role="alojamiento_has_servicio_adicional" Multiplicity="*" />
+          <End Type="DatabaseReservaVerticeModel.Servicio_adicional" Role="Servicio_adicional" Multiplicity="1" />
+        </Association>
+        <Association Name="Alojamientoalojamiento_has_servicio_adicional">
+          <End Type="DatabaseReservaVerticeModel.Alojamiento" Role="Alojamiento" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.alojamiento_has_servicio_adicional" Role="alojamiento_has_servicio_adicional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alojamiento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alojamiento_has_servicio_adicional">
+              <PropertyRef Name="AlojamientoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Reserva_alojamiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Alojamiento" Relationship="DatabaseReservaVerticeModel.AlojamientoReserva_alojamiento" FromRole="Reserva_alojamiento" ToRole="Alojamiento" />
+          <Property Name="AlojamientoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reserva" Relationship="DatabaseReservaVerticeModel.ReservaReserva_alojamiento" FromRole="Reserva_alojamiento" ToRole="Reserva" />
+          <Property Name="ReservaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="AlojamientoReserva_alojamiento">
+          <End Type="DatabaseReservaVerticeModel.Alojamiento" Role="Alojamiento" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.Reserva_alojamiento" Role="Reserva_alojamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alojamiento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva_alojamiento">
+              <PropertyRef Name="AlojamientoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reserva_alojamiento" Relationship="DatabaseReservaVerticeModel.ReservaReserva_alojamiento" FromRole="Reserva" ToRole="Reserva_alojamiento" />
+          <NavigationProperty Name="Reserva_programa" Relationship="DatabaseReservaVerticeModel.ReservaReserva_programa" FromRole="Reserva" ToRole="Reserva_programa" />
+          <NavigationProperty Name="Reserva_detalle_programa" Relationship="DatabaseReservaVerticeModel.ReservaReserva_detalle_programa" FromRole="Reserva" ToRole="Reserva_detalle_programa" />
+          <NavigationProperty Name="Reserva_excursion" Relationship="DatabaseReservaVerticeModel.ReservaReserva_excursion" FromRole="Reserva" ToRole="Reserva_excursion" />
+        </EntityType>
+        <Association Name="ReservaReserva_alojamiento">
+          <End Type="DatabaseReservaVerticeModel.Reserva" Role="Reserva" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.Reserva_alojamiento" Role="Reserva_alojamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva_alojamiento">
+              <PropertyRef Name="ReservaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReservaReserva_programa">
+          <End Type="DatabaseReservaVerticeModel.Reserva" Role="Reserva" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.Reserva_programa" Role="Reserva_programa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva_programa">
+              <PropertyRef Name="ReservaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Reserva_detalle_programa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reserva" Relationship="DatabaseReservaVerticeModel.ReservaReserva_detalle_programa" FromRole="Reserva_detalle_programa" ToRole="Reserva" />
+          <Property Name="ReservaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ReservaReserva_detalle_programa">
+          <End Type="DatabaseReservaVerticeModel.Reserva" Role="Reserva" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.Reserva_detalle_programa" Role="Reserva_detalle_programa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva_detalle_programa">
+              <PropertyRef Name="ReservaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Reserva_excursion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reserva" Relationship="DatabaseReservaVerticeModel.ReservaReserva_excursion" FromRole="Reserva_excursion" ToRole="Reserva" />
+          <Property Name="ReservaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Excursion" Relationship="DatabaseReservaVerticeModel.ExcursionReserva_excursion" FromRole="Reserva_excursion" ToRole="Excursion" />
+          <Property Name="ExcursionId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ReservaReserva_excursion">
+          <End Type="DatabaseReservaVerticeModel.Reserva" Role="Reserva" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.Reserva_excursion" Role="Reserva_excursion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva_excursion">
+              <PropertyRef Name="ReservaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Excursion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reserva_excursion" Relationship="DatabaseReservaVerticeModel.ExcursionReserva_excursion" FromRole="Excursion" ToRole="Reserva_excursion" />
+        </EntityType>
+        <Association Name="ExcursionReserva_excursion">
+          <End Type="DatabaseReservaVerticeModel.Excursion" Role="Excursion" Multiplicity="1" />
+          <End Type="DatabaseReservaVerticeModel.Reserva_excursion" Role="Reserva_excursion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Excursion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva_excursion">
+              <PropertyRef Name="ExcursionId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>

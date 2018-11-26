@@ -14,11 +14,24 @@ namespace ReservaVertice.Models
     
     public partial class Reserva
     {
-        public int Id { get; set; }
-        public short CantidadPasajero { get; set; }
-        public int AlojamientoId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Reserva()
+        {
+            this.Reserva_alojamiento = new HashSet<Reserva_alojamiento>();
+            this.Reserva_programa = new HashSet<Reserva_programa>();
+            this.Reserva_detalle_programa = new HashSet<Reserva_detalle_programa>();
+            this.Reserva_excursion = new HashSet<Reserva_excursion>();
+        }
     
-        public virtual Alojamiento Alojamiento { get; set; }
-        public virtual Pais Pais { get; set; }
+        public int Id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva_alojamiento> Reserva_alojamiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva_programa> Reserva_programa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva_detalle_programa> Reserva_detalle_programa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva_excursion> Reserva_excursion { get; set; }
     }
 }

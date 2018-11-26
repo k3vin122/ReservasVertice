@@ -12,20 +12,20 @@ namespace ReservaVertice.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Programa
+    public partial class Tipo_Alojamiento
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Programa()
+        public Tipo_Alojamiento()
         {
-            this.Programa_has_alojamiento = new HashSet<Programa_has_alojamiento>();
-            this.Reserva_programa = new HashSet<Reserva_programa>();
+            this.alojamiento_has_tipo_alojamiento = new HashSet<alojamiento_has_tipo_alojamiento>();
         }
     
         public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int Resumen_ReservaId { get; set; }
+        public string ll { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Programa_has_alojamiento> Programa_has_alojamiento { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reserva_programa> Reserva_programa { get; set; }
+        public virtual ICollection<alojamiento_has_tipo_alojamiento> alojamiento_has_tipo_alojamiento { get; set; }
     }
 }

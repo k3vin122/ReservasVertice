@@ -12,18 +12,12 @@ namespace ReservaVertice.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Pais
+    public partial class Programa_has_alojamiento
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Pais()
-        {
-            this.Reserva = new HashSet<Reserva>();
-        }
-    
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public int AlojamientoId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reserva> Reserva { get; set; }
+        public virtual Alojamiento Alojamiento { get; set; }
+        public virtual Programa Programa { get; set; }
     }
 }

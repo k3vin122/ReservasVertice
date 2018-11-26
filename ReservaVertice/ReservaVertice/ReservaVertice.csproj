@@ -162,6 +162,12 @@
     <Compile Include="Models\Alojamiento.cs">
       <DependentUpon>ModelReservaVertice.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Circuito.cs">
+      <DependentUpon>ModelReservaVertice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Excursion.cs">
+      <DependentUpon>ModelReservaVertice.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ModelReservaVertice.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,6 +190,18 @@
       <DependentUpon>ModelReservaVertice.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Reserva.cs">
+      <DependentUpon>ModelReservaVertice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Resumen_Reserva.cs">
+      <DependentUpon>ModelReservaVertice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sector.cs">
+      <DependentUpon>ModelReservaVertice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Servicio_Adicional.cs">
+      <DependentUpon>ModelReservaVertice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipo_Alojamiento.cs">
       <DependentUpon>ModelReservaVertice.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
